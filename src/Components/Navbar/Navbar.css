@@ -9,8 +9,15 @@
   height: 150px; /* or your preferred size */
   width: auto;
   border-radius: 10px;
-  transition: transform 0.3s; /* smooth hover effect */
+  transition:
+    transform 0.3s,
+    filter 0.3s; /* smooth hover effect */
   cursor: pointer;
+  filter: brightness(0) invert(0);
+}
+
+:root[data-theme='dark'] .nav-logo {
+  filter: brightness(0) invert(1);
 }
 
 .nav-menu {
@@ -34,6 +41,14 @@
   transform: scale(1.05);
 }
 
+.nav-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
 .nav-menu li {
   display: flex;
   flex-direction: column;
@@ -49,7 +64,8 @@
 
 .anchor-link {
   text-decoration: none;
-  color: white;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 /* Hide mobile icons on desktop */
@@ -70,8 +86,23 @@
     margin: 20px 50px;
   }
 
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: fixed;
+    top: 30px;
+    right: 80px;
+    z-index: 3;
+  }
+
   .nav-connect {
     display: none;
+  }
+
+  .theme-toggle {
+    font-size: 20px;
+    padding: 8px 10px;
   }
 
   .nav-mob-open {
@@ -99,7 +130,7 @@
     align-items: start;
     top: 0;
     gap: 30px;
-    background-color: #1f0016;
+    background-color: var(--nav-bg);
     width: 350px;
     height: 100%;
     z-index: 2;
@@ -132,7 +163,7 @@
 
 .resume-popup {
   position: relative;
-  background: white;
+  background: var(--card-bg);
   width: 90%;
   max-width: 800px;
   height: 80vh;

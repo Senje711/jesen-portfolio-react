@@ -42,11 +42,11 @@
 .hero-resume {
   padding: 25px 75px;
   border-radius: 50px;
-  border: 2px solid white;
+  border: 2px solid var(--text-primary);
   cursor: pointer;
 }
 .hero-connect:hover {
-  border: 2px solid white;
+  border: 2px solid var(--text-primary);
 }
 .hero-resume:hover {
   border-color: #b415ff;
@@ -107,7 +107,7 @@
 
 .resume-popup {
   position: relative;
-  background: white;
+  background: var(--card-bg);
   width: 90%;
   max-width: 900px;
   height: 85vh;
@@ -115,6 +115,7 @@
   overflow: auto;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   padding: 10px;
+  color: var(--text-primary);
 }
 
 .resume-close-btn {

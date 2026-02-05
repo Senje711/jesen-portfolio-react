@@ -5,6 +5,7 @@ import underline from '../../assets/nav_underline.svg';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import menu_open from '../../assets/menu_open.svg';
 import menu_close from '../../assets/menu_close.svg';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 const Navbar = () => {
   const [menu, setMenu] = useState('home');
@@ -60,10 +61,13 @@ const Navbar = () => {
           {menu === 'contact' ? <img src={underline} alt="" /> : <></>}
         </li>
       </ul>
-      <div className="nav-connect">
-        <AnchorLink className="anchor-link" offset={50} href="#contact">
-          Connect With Me
-        </AnchorLink>{' '}
+      <div className="nav-right">
+        <div className="nav-connect">
+          <AnchorLink className="anchor-link" offset={50} href="#contact">
+            Connect With Me
+          </AnchorLink>{' '}
+        </div>
+        <ThemeToggle />
       </div>
     </div>
   );

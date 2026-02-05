@@ -21,6 +21,12 @@
   bottom: 0;
   right: 0;
   z-index: -1;
+  filter: brightness(0) invert(0);
+  transition: filter 0.3s;
+}
+
+:root[data-theme='dark'] .about-title img {
+  filter: brightness(0) invert(1);
 }
 
 .about-sections {
@@ -57,12 +63,14 @@
   justify-content: center;
   margin: 0;
   padding: 0;
+  color: var(--text-secondary);
 }
 
 .about-para p {
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  color: var(--text-secondary);
 }
 
 .about-skills {
@@ -126,7 +134,7 @@
 .skills-header {
   font-size: 20px;
   font-weight: 600;
-  color: #ff00ff;
+  color: var(--text-primary);
   margin-top: 15px;
   margin-bottom: 0;
 }
@@ -203,6 +211,7 @@
   .about-title h1 {
     font-size: 50px;
     padding: 0;
+    color: var(--text-primary);
   }
   .about-title img {
     width: 130px;
@@ -217,6 +226,10 @@
   .about-para {
     font-size: 18px;
     line-height: 32px;
+    color: var(--text-secondary);
+  }
+  .about-para p {
+    color: var(--text-secondary);
   }
   .about-skills {
     gap: 20px;
@@ -224,6 +237,7 @@
   }
   .about-skill p {
     font-size: 20px;
+    color: var(--text-primary);
   }
   .about-skill hr {
     height: 6px;
@@ -240,6 +254,7 @@
   }
   .about-achievement p {
     text-align: center;
-    font-size: 16x;
+    font-size: 16px;
+    color: var(--text-secondary);
   }
 }

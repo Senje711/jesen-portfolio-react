@@ -1,0 +1,25 @@
+.theme-toggle {
+  background: none;
+  border: 2px solid var(--text-primary);
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.15);
+  background: var(--card-bg);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    font-size: 20px;
+    padding: 8px 10px;
+  }
+}
