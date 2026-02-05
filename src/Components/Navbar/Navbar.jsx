@@ -12,11 +12,11 @@ const Navbar = () => {
   const menuRef = useRef();
 
   const openMenu = () => {
-    menuRef.current.style.right = '0';
+    menuRef.current.style.left = '0';
   };
 
   const closeMenu = () => {
-    menuRef.current.style.right = '-350px';
+    menuRef.current.style.left = '-280px';
   };
 
   return (

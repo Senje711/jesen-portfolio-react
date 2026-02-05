@@ -44,6 +44,13 @@
   background: var(--card-bg);
   padding-right: 80px;
   border: 2px solid var(--border-color);
+  align-items: center;
+}
+
+.footer-email-input img {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 }
 
 .footer-email-input input {
@@ -87,11 +94,12 @@
 }
 @media (max-width: 768px) {
   .footer-logo {
-    height: 100px; /* adjust size as needed */
+    height: 80px; /* adjust size as needed */
+    width: auto;
   }
 
   .footer {
-    margin: 50px 20px;
+    margin: 40px 20px;
   }
   .footer-top {
     flex-direction: column;
@@ -104,12 +112,14 @@
   }
   .footer-email-input {
     width: 100%;
-    padding: 15px 20px;
-    padding-right: 20px;
-    flex-direction: column;
+    padding: 12px 15px;
+    padding-right: 15px;
+    flex-direction: row;
+    gap: 10px;
   }
-  .footer-email-input input {
-    font-size: 16px;
+  .footer-email-input img {
+    width: 18px;
+    height: 18px;
   }
   .footer-subscribe {
     width: 100%;

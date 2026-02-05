@@ -89,7 +89,7 @@ const About = () => {
                 </div>
                 <div className="about-skill">
                   <p>Firebase</p>
-                  <div className="skill-bar" style={{ width: '20%' }}></div>
+                  <div className="skill-bar" style={{ width: '50%' }}></div>
                 </div>
                 <div className="about-skill">
                   <p>VS Code</p>

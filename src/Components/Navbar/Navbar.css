@@ -124,6 +124,9 @@
     left: 40px;
     cursor: pointer;
     width: 28px;
+    z-index: 999;
+    opacity: 1;
+    visibility: visible;
   }
 
   .nav-menu {
@@ -131,16 +134,18 @@
     flex-direction: column;
     align-items: start;
     top: 0;
+    left: 0;
     gap: 30px;
     background-color: var(--nav-bg);
-    width: 100%;
-    max-width: 350px;
-    height: 100%;
+    width: 280px;
+    height: 100vh;
     z-index: 2;
-    transition: right 0.5s;
-    right: -350px;
+    transition: left 0.5s ease;
+    left: -280px;
     padding-top: 80px;
-    padding-left: 50px;
+    padding-left: 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .nav-menu li {

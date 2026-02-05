@@ -230,13 +230,35 @@
   .about-skills {
     gap: 20px;
     align-items: center;
+    width: 100%;
+  }
+  .skills-two-column {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    width: 100%;
+  }
+  .skills-two-column > div {
+    width: 100%;
+  }
+  .skills-two-column .about-skill {
+    gap: 15px;
+  }
+  .skills-two-column .about-skill p {
+    min-width: 100px;
+    font-size: 16px;
+  }
+  .about-skill {
+    flex-wrap: wrap;
   }
   .about-skill p {
-    font-size: 20px;
+    font-size: 16px;
     color: var(--text-primary);
+    min-width: 120px;
   }
   .about-skill hr {
     height: 6px;
+    flex: 1;
+    min-width: 80px;
   }
   .about-achievements {
     justify-content: space-between;
