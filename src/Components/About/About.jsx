@@ -2,10 +2,13 @@ import React from 'react';
 import './About.css';
 import theme_pattern from '../../assets/theme_pattern.svg';
 import about_profile from '../../assets/about_profile.png';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
+
 const About = () => {
+  const ref = useIntersectionObserver();
   return (
     <>
-      <div id="about" className="about">
+      <div id="about" className="about scroll-animate" ref={ref}>
         <div className="about-title">
           <h1>About me</h1>
           <img src={theme_pattern} alt="" />
@@ -17,36 +20,37 @@ const About = () => {
           <div className="about-right">
             <div className="about-para">
               <p>
-                A passionate third-year Bachelor of Science in Information
-                Technology (BSIT) student pursuing a career in front-end
-                development, with a strong focus on creating clean,
-                user-friendly, and visually appealing web designs while aspiring
-                to become a cybersecurity professional dedicated to building
-                secure and reliable digital solutions.
+                A dedicated BSIT 4th year student with a strong passion for
+                frontend development and web technologies. I specialize in
+                building responsive, user-centric web applications using React
+                and JavaScript. My experience spans from HTML/CSS fundamentals
+                to modern frontend frameworks, with growing interest in
+                full-stack development and backend technologies.
               </p>
               <p>
-                My passion for front-end development lies in transforming ideas
-                into functional and engaging digital experiences through
-                thoughtful design, structured coding practices, and continuous
-                learning in both web technologies and cybersecurity principles.
+                I'm committed to writing clean, maintainable code and following
+                industry best practices. I thrive in collaborative environments,
+                quickly adapt to new technologies, and am driven by the
+                challenge of solving complex problems through elegant, efficient
+                solutions.
               </p>
             </div>
           </div>
         </div>
         <div className="about-achievements">
           <div className="about-achievement">
-            <h1>0</h1>
-            <p>FRESH GRAD</p>
-          </div>
-          <hr />
-          <div className="about-achievement">
             <h1>10+</h1>
             <p>PROJECTS COMPLETED</p>
           </div>
           <hr />
           <div className="about-achievement">
-            <h1>10+</h1>
-            <p>HAPPY PROFS</p>
+            <h1>5+</h1>
+            <p>TECHNOLOGIES</p>
+          </div>
+          <hr />
+          <div className="about-achievement">
+            <h1>100%</h1>
+            <p>DEDICATED</p>
           </div>
         </div>
       </div>

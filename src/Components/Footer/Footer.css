@@ -76,12 +76,14 @@
   display: flex;
   justify-content: space-between;
   font-size: 18px;
+  align-items: center;
 }
 
 .footer-bottom-right {
   display: flex;
   gap: 50px;
   margin-bottom: 50px;
+  align-items: center;
 }
 
 .footer-email-input:hover {
@@ -92,6 +94,40 @@
   transform: scale(1.1);
   transition: 0.3s;
 }
+
+.scroll-to-top {
+  background: linear-gradient(267deg, #da7c25 0.36%, #b923e1 102.06%);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  padding: 0;
+  box-shadow: 0 4px 15px rgba(180, 21, 255, 0.3);
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(180, 21, 255, 0.5);
+}
+
+.scroll-to-top:active {
+  transform: scale(0.95);
+}
+
+.scroll-to-top img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  transform: rotate(-90deg);
+}
+
 @media (max-width: 768px) {
   .footer-logo {
     height: 80px; /* adjust size as needed */

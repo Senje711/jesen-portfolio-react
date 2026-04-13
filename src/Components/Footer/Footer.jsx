@@ -2,7 +2,15 @@ import React from 'react';
 import './Footer.css';
 import Logo from '../../assets/Logo.png';
 import user_icon from '../../assets/user_icon.svg';
+import arrow_icon from '../../assets/arrow_icon.svg';
+
 const Footer = () => {
+  const scrollToTop = () => {
+    const button = event.currentTarget;
+    button.classList.add('animate');
+    setTimeout(() => button.classList.remove('animate'), 500);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <div className="footer">
       <div className="footer-top">
@@ -31,6 +39,13 @@ const Footer = () => {
           <p>Terms of Services</p>
           <p>Privacy Policies</p>
           <p>Connect With Me</p>
+          <button
+            className="scroll-to-top"
+            onClick={scrollToTop}
+            aria-label="Scroll to top"
+          >
+            <img src={arrow_icon} alt="Scroll to top" />
+          </button>
         </div>
       </div>
     </div>

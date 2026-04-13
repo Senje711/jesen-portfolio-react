@@ -2,16 +2,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 20px 170px;
+  margin: 15px 100px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
 }
 
 .nav-logo {
-  height: 150px; /* or your preferred size */
+  height: 90px;
   width: auto;
   border-radius: 10px;
   transition:
     transform 0.3s,
-    filter 0.3s; /* smooth hover effect */
+    filter 0.3s;
   cursor: pointer;
   filter: brightness(0) invert(0);
 }
@@ -24,17 +26,20 @@
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 60px;
-  font-size: 20px;
+  gap: 35px;
+  font-size: 16px;
+  margin: 0 40px;
 }
 
 .nav-connect {
-  padding: 20px 40px;
+  padding: 12px 28px;
   border-radius: 50px;
   background: linear-gradient(267deg, #da7c25 0.36%, #b923e1 102.06%);
-  font-size: 22px;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.3s;
+  white-space: nowrap;
 }
 
 .nav-connect:hover {
@@ -68,13 +73,38 @@
   transition: color 0.3s ease;
 }
 
+.anchor-link:focus-visible {
+  outline: 2px solid #b415ff;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.nav-menu li:focus-within {
+  color: #b415ff;
+}
+
+.nav-connect:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
 /* Hide mobile icons on desktop */
 .nav-mob-open {
   display: none;
+  transition: transform 0.3s;
+}
+
+.nav-mob-open:hover {
+  transform: scale(1.1);
 }
 
 .nav-mob-close {
   display: none;
+  transition: transform 0.3s;
+}
+
+.nav-mob-close:hover {
+  transform: scale(1.1);
 }
 
 /* Mobile Styles */

@@ -1,10 +1,12 @@
 import React from 'react';
 import './Skills.css';
 import theme_pattern from '../../assets/theme_pattern.svg';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 const Skills = () => {
+  const ref = useIntersectionObserver();
   return (
-    <div id="skills" className="skills">
+    <div id="skills" className="skills scroll-animate" ref={ref}>
       <div className="skills-title">
         <h1>Technical Skills</h1>
         <img src={theme_pattern} alt="" />

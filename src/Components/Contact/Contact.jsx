@@ -1,36 +1,104 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Contact.css';
 import theme_pattern from '../../assets/theme_pattern.svg';
 import mail_icon from '../../assets/mail_icon.svg';
 import location_icon from '../../assets/location_icon.svg';
 import call_icon from '../../assets/call_icon.svg';
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
 const Contact = () => {
+  const ref = useIntersectionObserver();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState(''); // 'success', 'error', or ''
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: '',
+      }));
+    }
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
 
-    formData.append('access_key', '89413302-3d30-4143-be83-89e171bb6d82');
+    // Validate form
+    if (!validateForm()) {
+      setStatus('error');
+      setTimeout(() => setStatus(''), 5000);
+      return;
+    }
 
-    const object = Object.fromEntries(formData);
+    const formDataToSend = new FormData(event.target);
+    formDataToSend.append('access_key', '89413302-3d30-4143-be83-89e171bb6d82');
+
+    const object = Object.fromEntries(formDataToSend);
     const json = JSON.stringify(object);
 
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: json,
-    }).then((res) => res.json());
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      }).then((res) => res.json());
 
-    if (res.success) {
-      alert(res.message);
+      if (res.success) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setErrors({});
+        // Clear success message after 5 seconds
+        setTimeout(() => setStatus(''), 5000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus(''), 5000);
+      }
+    } catch (err) {
+      console.error('Error:', err);
+      setStatus('error');
+      setTimeout(() => setStatus(''), 5000);
     }
   };
 
   return (
-    <div id="contact" className="contact">
+    <div id="contact" className="contact scroll-animate" ref={ref}>
       <div className="contact-title">
         <h1>Get in touch</h1>
         <img src={theme_pattern} alt="" />
@@ -39,9 +107,10 @@ const Contact = () => {
         <div className="contact-left">
           <h1>Let's talk</h1>
           <p>
-            I'm currently available to take on new project, so feel free to send
-            me a message about anything you want me to work on. You can contact
-            anytime.
+            I'm actively seeking junior developer opportunities and
+            collaborations. Feel free to reach out for project opportunities,
+            technical discussions, or just to connect. I'm available for
+            freelance work and full-time positions.
           </p>
           <div className="contact-details">
             <div className="contact-detail">
@@ -60,16 +129,55 @@ const Contact = () => {
           </div>
         </div>
         <form onSubmit={onSubmit} action="" className="contact-right">
-          <label htmlFor="">Your Name</label>
-          <input type="text" placeholder="Enter your name" name="name" />
-          <label htmlFor="">Your Email</label>
-          <input type="email" placeholder="Enter Your Email" name="email" />
-          <label htmlFor="">Wrtie Your Message Here</label>
+          {status === 'success' && (
+            <div className="form-message success">
+              ✓ Message sent successfully! I'll get back to you soon.
+            </div>
+          )}
+          {status === 'error' && (
+            <div className="form-message error">
+              ✗{' '}
+              {Object.values(errors).length > 0
+                ? 'Please fix the errors below.'
+                : 'Something went wrong. Please try again.'}
+            </div>
+          )}
+
+          <label htmlFor="name">Your Name</label>
+          <input
+            type="text"
+            placeholder="Enter your name"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            className={errors.name ? 'input-error' : ''}
+          />
+          {errors.name && <span className="error-text">{errors.name}</span>}
+
+          <label htmlFor="email">Your Email</label>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            className={errors.email ? 'input-error' : ''}
+          />
+          {errors.email && <span className="error-text">{errors.email}</span>}
+
+          <label htmlFor="message">Write Your Message Here</label>
           <textarea
             name="message"
             rows="8"
-            placeholder="Enter Your Message"
+            placeholder="Enter your message (minimum 10 characters)"
+            value={formData.message}
+            onChange={handleInputChange}
+            className={errors.message ? 'input-error' : ''}
           ></textarea>
+          {errors.message && (
+            <span className="error-text">{errors.message}</span>
+          )}
+
           <button type="submit" className="contact-submit">
             Submit Now
           </button>

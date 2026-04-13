@@ -3,28 +3,69 @@
   align-items: center;
   flex-direction: column;
   gap: 35px;
+  animation: fadeInUp 1s ease-out;
 }
 .hero img {
   margin-top: 150px;
+  animation: fadeInDown 1.2s ease-out;
 }
 .hero h1 {
   text-align: center;
   width: 70%;
   font-size: 90px;
   font-weight: 600;
+  animation: fadeInUp 1s ease-out 0.2s backwards;
+  line-height: 1.2;
 }
 .hero h1 span {
   background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: 700;
 }
 .hero p {
   width: 50%;
   text-align: center;
   font-size: 24px;
   line-height: 40px;
+  animation: fadeInUp 1s ease-out 0.4s backwards;
+  color: var(--text-secondary);
 }
+
+.hero-social-links {
+  display: flex;
+  gap: 30px;
+  animation: fadeInUp 1s ease-out 0.5s backwards;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-link {
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 2px solid #b415ff;
+  text-decoration: none;
+  color: #b415ff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.social-link:hover {
+  background: linear-gradient(267deg, #df8908 -5.09%, #b415ff 106.28%);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(180, 21, 255, 0.3);
+}
+
+.social-link:active {
+  transform: translateY(-1px);
+}
+
 .hero-action {
   display: flex;
   align-items: center;
@@ -32,24 +73,41 @@
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 50px;
+  animation: fadeInUp 1s ease-out 0.6s backwards;
 }
 .hero-connect {
   padding: 25px 45px;
   border-radius: 50px;
   background: linear-gradient(267deg, #df8908 -5.09%, #b415ff 106.28%);
   cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 8px 20px rgba(180, 21, 255, 0.2);
+  border: 2px solid transparent;
+  color: white;
 }
 .hero-resume {
   padding: 25px 75px;
   border-radius: 50px;
   border: 2px solid var(--text-primary);
   cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: transparent;
+  color: var(--text-primary);
 }
 .hero-connect:hover {
-  border: 2px solid var(--text-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(180, 21, 255, 0.4);
+}
+.hero-connect:active {
+  transform: translateY(-1px);
 }
 .hero-resume:hover {
   border-color: #b415ff;
+  background: rgba(180, 21, 255, 0.1);
+  transform: translateY(-4px);
+}
+.hero-resume:active {
+  transform: translateY(-1px);
 }
 
 .hero img {
@@ -57,6 +115,8 @@
   max-width: 300px;
   width: 100%;
   height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(223, 137, 8, 0.15);
 }
 
 @media (max-width: 768px) {
@@ -80,6 +140,7 @@
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 50px;
+    flex-wrap: wrap;
   }
   .hero-connect {
     padding: 20px 30px;
@@ -88,6 +149,15 @@
   .hero-resume {
     padding: 20px 50px;
     border-radius: 40px;
+  }
+  .hero-social-links {
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+  }
+  .social-link {
+    padding: 10px 18px;
+    font-size: 14px;
   }
 }
 
@@ -103,6 +173,8 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  backdrop-filter: blur(3px);
+  animation: fadeInUp 0.3s ease-out;
 }
 
 .resume-popup {
@@ -113,9 +185,10 @@
   height: 85vh;
   border-radius: 10px;
   overflow: auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   padding: 10px;
   color: var(--text-primary);
+  animation: slideInUp 0.4s ease-out;
 }
 
 .resume-close-btn {
@@ -134,10 +207,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.3s;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .resume-close-btn:hover {
   background: #df8908;
-  transform: scale(1.1);
+  transform: scale(1.15) rotate(90deg);
+}
+
+.resume-close-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
