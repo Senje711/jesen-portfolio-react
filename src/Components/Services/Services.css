@@ -150,6 +150,114 @@
   margin-top: auto;
 }
 
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .services {
+    gap: 50px;
+    margin: 40px 20px;
+    padding: 0 10px;
+  }
+
+  .services-title h1 {
+    font-size: 50px;
+  }
+
+  .services-container.projects-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .project-image {
+    height: 200px;
+  }
+
+  .project-content {
+    padding: 20px;
+  }
+
+  .project-header h2 {
+    font-size: 20px;
+  }
+}
+
+/* iPhone mobile breakpoint */
+@media (max-width: 479px) {
+  .services {
+    gap: 30px;
+    margin: 30px 15px;
+    padding: 0;
+  }
+
+  .services-title h1 {
+    font-size: 32px !important;
+    position: relative !important;
+    z-index: 2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .services-title img {
+    position: absolute !important;
+    z-index: 1 !important;
+    width: 110px !important;
+    height: auto !important;
+    bottom: 0 !important;
+    right: -25px !important;
+  }
+
+  .services-container.projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card {
+    border-radius: 12px;
+  }
+
+  .project-image {
+    height: 180px;
+  }
+
+  .project-content {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-header h2 {
+    font-size: 16px;
+  }
+
+  .project-role {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  .project-description {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .tech-badge {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  .project-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .project-actions button {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
 .project-github-btn,
 .project-details-btn {
   flex: 1;
@@ -357,59 +465,6 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .services-container.projects-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .project-card {
-    animation: fadeInUp 0.8s ease-out backwards;
-  }
-
-  .project-image {
-    height: 200px;
-  }
-
-  .project-content {
-    padding: 20px;
-  }
-
-  .project-header h2 {
-    font-size: 20px;
-  }
-
-  .project-description {
-    font-size: 14px;
-  }
-
-  .project-actions {
-    flex-direction: column;
-  }
-
-  .project-modal {
-    width: 95%;
-    max-width: 600px;
-  }
-
-  .project-modal-image {
-    height: 250px;
-  }
-
-  .project-modal-content {
-    padding: 25px;
-  }
-
-  .project-modal-header h2 {
-    font-size: 28px;
-  }
-
-  .project-github-btn-large {
-    padding: 12px 25px;
-    font-size: 14px;
   }
 }
 
@@ -703,64 +758,5 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .services {
-    align-items: center;
-    gap: 70px;
-    margin: 20px 70px;
-  }
-  .services-title {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  .services-title h1 {
-    padding: 0;
-    font-size: 50px;
-    text-align: center;
-  }
-  .services-title img {
-    position: absolute !important;
-    z-index: -1 !important;
-    width: 100px !important;
-    bottom: 0px !important;
-    right: 95px !important;
-  }
-  .services-format {
-    gap: 20px;
-    padding: 32px;
-  }
-  .services-format h2 {
-    font-size: 28px;
-  }
-  .services-format p {
-    font-size: 18px;
-    line-height: 32px;
-    max-width: 300%;
-  }
-  .services-readmore img {
-    width: 20px;
-  }
-  .services-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-  }
-
-  .service-modal {
-    width: 95%;
-    max-width: 500px;
-    padding: 40px 25px 30px;
-  }
-
-  .service-modal h2 {
-    font-size: 32px;
-  }
-
-  .service-contact-btn {
-    font-size: 16px;
-    padding: 12px 25px;
   }
 }

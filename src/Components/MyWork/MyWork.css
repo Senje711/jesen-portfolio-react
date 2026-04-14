@@ -148,6 +148,47 @@
     grid-template-columns: 1fr;
     gap: 30px;
     max-width: 100%;
+  }
+}
+
+/* iPhone mobile breakpoint */
+@media (max-width: 479px) {
+  .mywork {
+    gap: 25px;
+    margin: 25px 15px;
+    align-items: center;
+    width: calc(100% - 30px);
+  }
+
+  .mywork-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .mywork-title h1 {
+    padding: 0 !important;
+    font-size: 32px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    position: relative !important;
+    z-index: 2 !important;
+    margin: 0 !important;
+  }
+
+  .mywork-title img {
+    position: absolute !important;
+    z-index: 1 !important;
+    width: 110px !important;
+    height: auto !important;
+    bottom: -1px !important;
+    right: -20px !important;
+  }
+
+  .mywork-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 100%;
     width: 100%;
   }
   .mywork-container img {

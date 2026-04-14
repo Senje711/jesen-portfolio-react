@@ -192,38 +192,39 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 479px) {
   .footer {
     margin: 20px 0;
-    padding: 0 15px;
-    gap: 15px;
+    padding: 0 12px;
+    gap: 12px;
   }
   .footer-logo {
-    height: clamp(50px, 10vw, 70px);
+    height: 45px;
   }
   .footer-left p {
-    font-size: clamp(12px, 2vw, 14px);
+    font-size: 12px;
+    max-width: 100%;
   }
   .footer-top {
-    gap: clamp(20px, 5vw, 30px);
+    flex-direction: column;
+    gap: 20px;
   }
   .footer-top-right {
-    gap: clamp(10px, 2.5vw, 15px);
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
   }
   .footer-email-input {
-    padding: 8px clamp(10px, 2vw, 12px);
+    padding: 10px 12px;
+    padding-right: 12px;
     gap: 8px;
+    flex-direction: row;
   }
-  .footer-subscribe {
-    padding: 10px clamp(15px, 3vw, 20px);
+  .footer-email-input img {
+    width: 16px;
+    height: 16px;
+  }
+  .footer-email-input input {
     font-size: 12px;
   }
-  .footer-bottom {
-    gap: 10px;
-    font-size: clamp(11px, 1.6vw, 12px);
-    margin-bottom: 30px;
-  }
-  .footer-bottom-right {
-    gap: 8px;
-  }
-}
+  .footer-subscribe {\n    width: 100%;\n    text-align: center;\n    padding: 10px 15px;\n    font-size: 12px;\n  }\n  .footer-bottom {\n    flex-direction: column;\n    gap: 10px;\n    font-size: 11px;\n    margin-bottom: 20px;\n  }\n  .footer-bottom-right {\n    flex-direction: column;\n    gap: 8px;\n    margin-bottom: 0;\n    width: 100%;\n  }\n  .scroll-to-top {\n    width: 40px;\n    height: 40px;\n  }\n}

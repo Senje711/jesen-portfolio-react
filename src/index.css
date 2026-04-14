@@ -136,6 +136,17 @@ body {
   scroll-margin-top: 80px;
 }
 
+/* Mobile breakpoint for iPhone 11-17 */
+@media (max-width: 479px) {
+  body {
+    height: auto;
+  }
+
+  .section-container {
+    scroll-margin-top: 60px;
+  }
+}
+
 /* ===== SCROLL-TRIGGERED ANIMATIONS ===== */
 .scroll-animate {
   opacity: 0;

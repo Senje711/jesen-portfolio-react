@@ -98,9 +98,56 @@
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   background: transparent;
-  color: var(--text-primary);
-  font-size: clamp(14px, 2vw, 18px);
 }
+
+/* iPhone mobile breakpoint */
+@media (max-width: 479px) {
+  .hero {
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .hero img {
+    margin-top: 100px;
+    max-width: 100%;
+    width: 90%;
+  }
+
+  .hero h1 {
+    width: 95%;
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    width: 95%;
+    font-size: 14px;
+  }
+
+  .hero-social-links {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .hero-action {
+    flex-direction: column;
+    gap: 12px;
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  .hero-connect,
+  .hero-resume {
+    width: 100%;
+    padding: 14px 20px;
+  }
+}
+
 .hero-connect:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(180, 21, 255, 0.4);

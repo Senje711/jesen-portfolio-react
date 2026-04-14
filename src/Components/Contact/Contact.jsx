@@ -145,34 +145,40 @@ const Contact = () => {
 
           <label htmlFor="name">Your Name</label>
           <input
+            id="name"
             type="text"
             placeholder="Enter your name"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
             className={errors.name ? 'input-error' : ''}
+            autoComplete="name"
           />
           {errors.name && <span className="error-text">{errors.name}</span>}
 
           <label htmlFor="email">Your Email</label>
           <input
+            id="email"
             type="email"
             placeholder="Enter your email"
             name="email"
             value={formData.email}
             onChange={handleInputChange}
             className={errors.email ? 'input-error' : ''}
+            autoComplete="email"
           />
           {errors.email && <span className="error-text">{errors.email}</span>}
 
           <label htmlFor="message">Write Your Message Here</label>
           <textarea
+            id="message"
             name="message"
             rows="8"
             placeholder="Enter your message (minimum 10 characters)"
             value={formData.message}
             onChange={handleInputChange}
             className={errors.message ? 'input-error' : ''}
+            autoComplete="off"
           ></textarea>
           {errors.message && (
             <span className="error-text">{errors.message}</span>
