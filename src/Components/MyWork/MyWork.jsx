@@ -10,7 +10,11 @@ const MyWork = () => {
   return (
     <div id="work" className="mywork scroll-animate" ref={ref}>
       <div className="mywork-title">
-        <h1>Graphic Design Portfolio</h1>
+        <h1>
+          Graphic Design
+          <br />
+          Portfolio
+        </h1>
         <img src={theme_pattern} alt="" />
       </div>
       <div className="mywork-container">

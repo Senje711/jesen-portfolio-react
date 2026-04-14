@@ -18,12 +18,20 @@
   animation: fadeInDown 0.8s ease-out 0.2s backwards;
   position: relative;
   z-index: 2;
+  margin: 0;
+  display: block !important;
+  width: 100%;
+  max-width: 700px !important;
+  word-wrap: break-word !important;
+  white-space: normal !important;
+  line-height: 1.1 !important;
+  text-align: center;
 }
 
 .mywork-title img {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
+  bottom: 0px;
+  right: 120px;
   z-index: 1;
   width: clamp(100px, 20vw, 150px);
   height: auto;
@@ -181,8 +189,8 @@
     z-index: 1 !important;
     width: 110px !important;
     height: auto !important;
-    bottom: -1px !important;
-    right: -20px !important;
+    bottom: -4px !important;
+    right: 100px !important;
   }
 
   .mywork-container {
