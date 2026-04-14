@@ -5,36 +5,50 @@
   justify-content: center;
   gap: 80px;
   margin: 80px 170px;
+  padding: 0 20px;
 }
 
 .about-title {
   position: relative;
+  display: inline-flex; /* This is the bulletproof shrink-wrap! */
+  align-items: center;
+  margin-bottom: 30px; /* Adds breathing room below the title */
 }
 
 .about-title h1 {
-  padding: 0px 30px;
-  font-size: 80px;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+
+  /* Add these two lines back to restore the size! */
+  font-size: clamp(48px, 8vw, 80px);
   font-weight: 600;
-  animation: fadeInDown 0.8s ease-out 0.2s backwards;
-}
-.about-title img {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  opacity: 0.8;
-  transition: opacity 0.3s;
 }
 
+.about-title img {
+  position: absolute;
+  z-index: 1;
+
+  /* Make it wide enough to stretch like the My Projects section */
+  width: clamp(140px, 25vw, 190px);
+  height: auto;
+
+  /* Pull it UP into the text and LEFT under the 't' and 'm' */
+  bottom: 5px;
+  right: -20px;
+}
 .about-sections {
   display: flex;
-  gap: 80px;
+  gap: clamp(40px, 5vw, 80px);
   animation: fadeInUp 1s ease-out 0.2s backwards;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .about-left {
   flex-shrink: 0;
-  width: 300px;
+  width: clamp(250px, 35vw, 300px);
   animation: slideInLeft 0.8s ease-out;
 }
 
@@ -64,13 +78,14 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  font-size: 24px;
+  font-size: clamp(16px, 2.5vw, 24px);
   font-weight: 500;
   justify-content: center;
   margin: 0;
   padding: 0;
   color: var(--text-secondary);
   line-height: 1.7;
+  flex: 1;
 }
 
 .about-para p {
@@ -239,27 +254,48 @@
 
 @media (max-width: 768px) {
   .about {
-    gap: 80px;
-    margin: 50px 70px;
-    align-items: start;
+    gap: 50px;
+    margin: 50px 0;
+    padding: 0 20px;
+    align-items: center;
+  }
+  .about-title {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
   }
   .about-title h1 {
-    font-size: 50px;
-    padding: 0;
-    color: var(--text-primary);
+    padding: 0 !important;
+    margin: 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
+    text-align: center;
+    font-size: 50px !important; /* Forces it to be nice and readable on phones */
   }
   .about-title img {
-    width: 130px;
-    right: -20px;
+    position: absolute !important;
+    z-index: 1 !important;
+
+    /* Force a large, wide size for mobile */
+    width: 100px !important;
+
+    /* Position it perfectly under "me" */
+    bottom: 5px !important;
+    right: 70px !important;
+  }
+  #skills .about-title img {
+    right: 15px !important;
   }
   .about-sections {
     flex-direction: column;
+    gap: 30px;
   }
   .about-left {
     display: none;
   }
   .about-para {
-    font-size: 18px;
+    font-size: clamp(14px, 2.2vw, 18px);
     line-height: 32px;
     color: var(--text-secondary);
   }
@@ -301,17 +337,55 @@
   }
   .about-achievements {
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   .about-achievement {
     gap: 10px;
+    flex: 1;
+    min-width: 120px;
   }
   .about-achievement h1 {
-    font-size: 34px;
+    font-size: clamp(28px, 6vw, 34px);
     font-weight: 700;
   }
   .about-achievement p {
     text-align: center;
-    font-size: 16px;
+    font-size: clamp(12px, 2vw, 16px);
     color: var(--text-secondary);
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    gap: 30px;
+    margin: 30px 0;
+    padding: 0 15px;
+  }
+  .about-title h1 {
+    font-size: clamp(28px, 6vw, 40px);
+    padding: 0;
+  }
+  .about-title img {
+    width: clamp(40px, 10vw, 100px);
+    bottom: 10px;
+    right: -30px;
+    transform: none;
+  }
+  .about-para {
+    font-size: clamp(14px, 2vw, 16px);
+    gap: 15px;
+  }
+  .about-achievements {
+    gap: 15px;
+  }
+  .about-achievement {
+    padding: 15px;
+  }
+  .about-achievement h1 {
+    font-size: clamp(24px, 5vw, 30px);
+  }
+  .about-achievement p {
+    font-size: clamp(11px, 1.8vw, 14px);
   }
 }

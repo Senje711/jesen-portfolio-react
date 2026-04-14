@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="footer-left">
           <img src={Logo} alt="" className="footer-logo" />
           <p>
-            I am 3rd year BSIT pursuing a frontend developer from, PH with a
+            I am 4th year BSIT pursuing a frontend developer from, PH with a
             experience of projects in school like designing in figma and coding
             for front end side.
           </p>

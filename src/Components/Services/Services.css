@@ -20,10 +20,11 @@
 
 .services-title img {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 5px;
+  right: 10px;
   z-index: -1;
-  opacity: 0.8;
+  width: clamp(100px, 20vw, 150px);
+  height: auto;
   transition: opacity 0.3s;
 }
 
@@ -60,7 +61,11 @@
   width: 100%;
   height: 250px;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(180, 21, 255, 0.1), rgba(223, 137, 8, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(180, 21, 255, 0.1),
+    rgba(223, 137, 8, 0.1)
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,7 +131,11 @@
 }
 
 .tech-badge {
-  background: linear-gradient(135deg, rgba(223, 137, 8, 0.2), rgba(180, 21, 255, 0.2));
+  background: linear-gradient(
+    135deg,
+    rgba(223, 137, 8, 0.2),
+    rgba(180, 21, 255, 0.2)
+  );
   color: var(--text-primary);
   padding: 5px 12px;
   border-radius: 20px;
@@ -303,7 +312,11 @@
 }
 
 .tech-badge-large {
-  background: linear-gradient(135deg, rgba(223, 137, 8, 0.2), rgba(180, 21, 255, 0.2));
+  background: linear-gradient(
+    135deg,
+    rgba(223, 137, 8, 0.2),
+    rgba(180, 21, 255, 0.2)
+  );
   color: var(--text-primary);
   padding: 8px 16px;
   border-radius: 25px;
@@ -520,7 +533,6 @@
 .services-format:hover .services-readmore img {
   transform: translateX(8px);
 }
-}
 
 /* Service Modal Styles */
 .service-modal-overlay {
@@ -647,7 +659,7 @@
 }
 
 .service-modal-detail li:before {
-  content: "✓";
+  content: '✓';
   position: absolute;
   left: 0;
   color: #b415ff;
@@ -696,17 +708,26 @@
 
 @media (max-width: 768px) {
   .services {
-    align-items: start;
+    align-items: center;
     gap: 70px;
     margin: 20px 70px;
+  }
+  .services-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
   .services-title h1 {
     padding: 0;
     font-size: 50px;
+    text-align: center;
   }
   .services-title img {
-    width: 130px;
-    margin-right: -20px;
+    position: absolute !important;
+    z-index: -1 !important;
+    width: 100px !important;
+    bottom: 0px !important;
+    right: 95px !important;
   }
   .services-format {
     gap: 20px;
@@ -727,17 +748,17 @@
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
-  
+
   .service-modal {
     width: 95%;
     max-width: 500px;
     padding: 40px 25px 30px;
   }
-  
+
   .service-modal h2 {
     font-size: 32px;
   }
-  
+
   .service-contact-btn {
     font-size: 16px;
     padding: 12px 25px;

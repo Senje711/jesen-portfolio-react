@@ -11,11 +11,12 @@
 }
 .hero h1 {
   text-align: center;
-  width: 70%;
-  font-size: 90px;
+  width: 90%;
+  font-size: clamp(40px, 8vw, 90px);
   font-weight: 600;
   animation: fadeInUp 1s ease-out 0.2s backwards;
   line-height: 1.2;
+  max-width: 1000px;
 }
 .hero h1 span {
   background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
@@ -25,29 +26,31 @@
   font-weight: 700;
 }
 .hero p {
-  width: 50%;
+  width: 90%;
   text-align: center;
-  font-size: 24px;
-  line-height: 40px;
+  font-size: clamp(14px, 2.5vw, 24px);
+  line-height: 1.7;
   animation: fadeInUp 1s ease-out 0.4s backwards;
   color: var(--text-secondary);
+  max-width: 800px;
 }
 
 .hero-social-links {
   display: flex;
-  gap: 30px;
+  gap: clamp(15px, 3vw, 30px);
   animation: fadeInUp 1s ease-out 0.5s backwards;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .social-link {
-  padding: 12px 24px;
+  padding: clamp(8px, 1.5vw, 12px) clamp(16px, 3vw, 24px);
   border-radius: 50px;
   border: 2px solid #b415ff;
   text-decoration: none;
   color: #b415ff;
-  font-size: 16px;
+  font-size: clamp(13px, 2vw, 16px);
   font-weight: 500;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -69,14 +72,16 @@
 .hero-action {
   display: flex;
   align-items: center;
-  gap: 25px;
-  font-size: 24px;
+  gap: clamp(15px, 3vw, 25px);
+  font-size: clamp(16px, 2.5vw, 24px);
   font-weight: 500;
-  margin-bottom: 50px;
+  margin-bottom: clamp(30px, 8vw, 50px);
   animation: fadeInUp 1s ease-out 0.6s backwards;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .hero-connect {
-  padding: 25px 45px;
+  padding: clamp(15px, 3vw, 25px) clamp(30px, 6vw, 45px);
   border-radius: 50px;
   background: linear-gradient(267deg, #df8908 -5.09%, #b415ff 106.28%);
   cursor: pointer;
@@ -84,15 +89,17 @@
   box-shadow: 0 8px 20px rgba(180, 21, 255, 0.2);
   border: 2px solid transparent;
   color: white;
+  font-size: clamp(14px, 2vw, 18px);
 }
 .hero-resume {
-  padding: 25px 75px;
+  padding: clamp(15px, 3vw, 25px) clamp(40px, 8vw, 75px);
   border-radius: 50px;
   border: 2px solid var(--text-primary);
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   background: transparent;
   color: var(--text-primary);
+  font-size: clamp(14px, 2vw, 18px);
 }
 .hero-connect:hover {
   transform: translateY(-4px);
@@ -111,7 +118,7 @@
 }
 
 .hero img {
-  margin-top: 150px;
+  margin-top: clamp(80px, 10vw, 150px);
   max-width: 300px;
   width: 100%;
   height: auto;
@@ -121,43 +128,85 @@
 
 @media (max-width: 768px) {
   .hero img {
-    margin-top: 120px;
-    width: 260px;
+    margin-top: clamp(60px, 8vw, 120px);
+    width: clamp(200px, 60vw, 260px);
   }
   .hero h1 {
-    margin-top: 50px;
-    width: 90%;
-    font-size: 50px;
+    margin-top: clamp(30px, 5vw, 50px);
+    width: 95%;
+    font-size: clamp(32px, 6vw, 50px);
   }
   .hero p {
-    width: 90%;
-    font-size: 18px;
-    line-height: 32px;
-    margin: 10px 0px;
+    width: 95%;
+    font-size: clamp(14px, 2.2vw, 18px);
+    line-height: 1.6;
+    margin: clamp(8px, 2vw, 10px) 0px;
   }
   .hero-action {
-    gap: 16px;
-    font-size: 18px;
+    gap: clamp(10px, 2vw, 16px);
+    font-size: clamp(14px, 2vw, 18px);
     font-weight: 500;
-    margin-bottom: 50px;
+    margin-bottom: clamp(30px, 8vw, 50px);
     flex-wrap: wrap;
   }
   .hero-connect {
-    padding: 20px 30px;
+    padding: clamp(12px, 2vw, 20px) clamp(20px, 4vw, 30px);
     border-radius: 40px;
+    font-size: clamp(13px, 1.8vw, 16px);
   }
   .hero-resume {
-    padding: 20px 50px;
+    padding: clamp(12px, 2vw, 20px) clamp(30px, 5vw, 50px);
     border-radius: 40px;
+    font-size: clamp(13px, 1.8vw, 16px);
   }
   .hero-social-links {
-    gap: 15px;
+    gap: clamp(10px, 2vw, 15px);
     flex-wrap: wrap;
-    margin: 15px 0;
+    margin: clamp(10px, 2vw, 15px) 0;
   }
   .social-link {
+    padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2.5vw, 18px);
+    font-size: clamp(12px, 1.8vw, 14px);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero img {
+    margin-top: clamp(40px, 6vw, 80px);
+    width: clamp(160px, 70vw, 200px);
+  }
+  .hero h1 {
+    margin-top: 20px;
+    width: 95%;
+    font-size: clamp(24px, 5vw, 36px);
+    line-height: 1.3;
+  }
+  .hero p {
+    width: 95%;
+    font-size: clamp(12px, 2vw, 14px);
+    line-height: 1.5;
+    margin: 8px 0px;
+  }
+  .hero-action {
+    gap: 8px;
+    font-size: clamp(12px, 1.8vw, 16px);
+    margin-bottom: 30px;
+  }
+  .hero-connect {
     padding: 10px 18px;
-    font-size: 14px;
+    font-size: clamp(11px, 1.6vw, 14px);
+  }
+  .hero-resume {
+    padding: 10px 20px;
+    font-size: clamp(11px, 1.6vw, 14px);
+  }
+  .hero-social-links {
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .social-link {
+    padding: 6px 12px;
+    font-size: 11px;
   }
 }
 

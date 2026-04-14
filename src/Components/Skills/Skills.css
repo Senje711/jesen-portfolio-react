@@ -3,42 +3,53 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 80px;
+  gap: clamp(40px, 8vw, 80px);
   margin: 80px 170px;
+  padding: 0 20px;
 }
 
+/* Change this class name to .about-title if that's what your inspector shows! */
 .skills-title {
   position: relative;
+  width: max-content; /* THIS IS THE MAGIC FIX: Forces the box to shrink-wrap the text */
+  margin: 0 auto; /* Centers the shrink-wrapped box on the screen */
 }
 
 .skills-title h1 {
   padding: 0px 30px;
-  font-size: 80px;
+  font-size: clamp(48px, 8vw, 80px);
   font-weight: 600;
+  text-align: center;
+  word-break: break-word;
+  margin: 0;
 }
 
 .skills-title img {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
+  bottom: 5px;
+  right: -20px;
+  z-index: 1;
+  width: clamp(60px, 15vw, 150px);
+  height: auto;
 }
 
 .skills-container {
   display: flex;
-  gap: 100px;
+  gap: clamp(50px, 10vw, 100px);
   width: 100%;
+  max-width: 1200px;
   justify-content: center;
 }
 
 .skills-section {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: clamp(15px, 3vw, 20px);
+  flex: 1;
 }
 
 .skills-section h3 {
-  font-size: 28px;
+  font-size: clamp(20px, 4vw, 28px);
   font-weight: 600;
   background: linear-gradient(270deg, #df8908 10%, #b415ff 100%);
   background-clip: text;
@@ -54,9 +65,9 @@
 }
 
 .skills-list li {
-  font-size: 20px;
+  font-size: clamp(14px, 2.5vw, 20px);
   color: var(--text-primary);
-  padding: 12px 0;
+  padding: clamp(8px, 1.5vw, 12px) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: 0.3s;
   cursor: pointer;
@@ -73,21 +84,32 @@
 }
 
 @media (max-width: 768px) {
-  .skills {
-    gap: 50px;
-    margin: 50px 70px;
-    align-items: start;
+  /* 1. Shrink-wrap the container and center it */
+  .skills-title {
+    position: relative !important;
+    display: inline-flex !important; /* THIS IS THE MAGIC FIX */
+    margin: 0 auto 40px auto !important;
   }
 
+  /* 2. Force the text to stay on top */
   .skills-title h1 {
-    padding: 0;
-    font-size: 50px;
-    font-weight: 600;
+    padding: 0 !important;
+    margin: 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
+    font-size: 50px !important; /* Keep it sized correctly */
   }
 
+  /* 3. Position the violet shape */
   .skills-title img {
-    width: 130px;
-    right: -20px;
+    position: absolute !important;
+    z-index: 1 !important; /* Push it behind the text */
+
+    width: clamp(50px, 12vw, 120px) !important;
+
+    /* Position it like About me */
+    bottom: 5px !important;
+    right: 70px !important;
   }
 
   .skills-container {
